@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void printBinary(unsigned int num)
+{
+    int i;
+    // Number of bits in an integer (assuming 32-bit integer)
+    int size = sizeof(num) * 8;
+
+    // Loop through each bit, starting from the most significant bit
+    for (i = size - 1; i >= 0; i--)
+    {
+        // Use bitwise AND to check the value of the current bit
+        int bit = (num >> i) & 1;
+        // Print the current bit
+        printf("%d", bit);
+
+        // Optionally, add a space for better readability
+        if (i % 4 == 0)
+        {
+            printf(" ");
+        }
+    }
+
+    // Add a newline at the end
+    printf("\n");
+}
+
+int main()
+{
+    unsigned int value = 42; // Replace with your desired value
+
+    printf("Binary representation of %u: ", value);
+    printBinary(value);
+
+    return 0;
+}
